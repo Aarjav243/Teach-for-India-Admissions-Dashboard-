@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { supabase } from '../lib/supabase';
 import { useAuth } from '../context/AuthContext';
-import { UserCheck, Mail, Shield, Users, Plus, AlertCircle, X, Check } from 'lucide-react';
+import { UserCheck, Mail, Plus, AlertCircle, X, Check } from 'lucide-react';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
@@ -61,7 +61,7 @@ const TeamPage: React.FC = () => {
       const { data: { session: oldSession } } = await supabase.auth.getSession();
 
       // 2. Sign up new user
-      const { data: authData, error: authError } = await supabase.auth.signUp({
+      const { error: authError } = await supabase.auth.signUp({
         email: formData.email,
         password: formData.password,
         options: {

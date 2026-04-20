@@ -1,11 +1,9 @@
 import React from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { 
-  LayoutDashboard, 
-  Users, 
-  UserPlus, 
-  Settings, 
-  LogOut, 
+import {
+  Users,
+  UserPlus,
+  LogOut,
   UserCheck,
   ChevronRight,
   PieChart

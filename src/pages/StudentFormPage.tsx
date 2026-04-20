@@ -82,7 +82,7 @@ const StudentFormPage: React.FC = () => {
 
   const fetchStudent = async () => {
     setLoading(true);
-    const { data, error } = await supabase.from('admission_students').select('*').eq('id', id).single();
+    const { data } = await supabase.from('admission_students').select('*').eq('id', id).single();
     if (data) setFormData(data);
     setLoading(false);
   };

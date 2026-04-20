@@ -2,16 +2,13 @@ import React, { useEffect, useState, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '../lib/supabase';
 import { useAuth } from '../context/AuthContext';
-import { 
-  Search, 
-  Filter, 
-  ChevronRight, 
-  User, 
-  School, 
+import {
+  Search,
+  ChevronRight,
+  User,
+  School,
   Calendar,
-  MoreVertical,
-  Plus,
-  ArrowUpDown
+  Plus
 } from 'lucide-react';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
@@ -29,7 +26,7 @@ const CATEGORY_COLORS: Record<string, string> = {
 };
 
 const StudentListPage: React.FC = () => {
-  const { user, profile } = useAuth();
+  const { user } = useAuth();
   const navigate = useNavigate();
   const [students, setStudents] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);

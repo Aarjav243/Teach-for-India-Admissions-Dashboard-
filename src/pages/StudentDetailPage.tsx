@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { supabase } from '../lib/supabase';
-import { 
-  ArrowLeft, 
-  Edit3, 
-  User, 
-  School, 
-  MapPin, 
-  Phone, 
-  GraduationCap, 
-  BookOpen, 
+import {
+  ArrowLeft,
+  Edit3,
+  School,
+  MapPin,
+  Phone,
+  GraduationCap,
+  BookOpen,
   Calendar,
   CheckCircle2,
   XCircle,
@@ -44,7 +43,7 @@ const StudentDetailPage: React.FC = () => {
   }, [id]);
 
   const fetchStudent = async () => {
-    const { data, error } = await supabase
+    const { data } = await supabase
       .from('admission_students')
       .select(`
         *,

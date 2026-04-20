@@ -36,7 +36,7 @@ const STUDENT_CATEGORY_COLORS: Record<string, string> = {
 };
 
 const InsightsPage: React.FC = () => {
-  const { user, profile } = useAuth();
+  const { user } = useAuth();
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState<any[]>([]);
   const [batches, setBatches] = useState<number[]>([]);
