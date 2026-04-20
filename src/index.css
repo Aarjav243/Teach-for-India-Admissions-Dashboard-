@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+@theme {
+  --color-tfi-pink: #EF5879;
+  --color-tfi-green: #B7C930;
+  --color-tfi-cyan: #0EC0E2;
+  --color-tfi-dark: #1C1C2E;
+  --color-tfi-muted: #6B7280;
+  --font-sans: 'Inter', sans-serif;
+  --shadow-premium: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
+  --shadow-glass: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+@layer base {
+  body {
+    @apply bg-gray-50 font-sans antialiased;
+    color: var(--color-tfi-dark);
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-lg font-medium transition-all duration-200 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2;
+  }
+  
+  .btn-primary {
+    @apply bg-tfi-pink text-white hover:opacity-90 shadow-md hover:shadow-lg;
+  }
+
+  .btn-secondary {
+    @apply bg-tfi-green text-white hover:opacity-90 shadow-md hover:shadow-lg;
+  }
+  
+  .btn-outline {
+    @apply border-2 border-tfi-dark text-tfi-dark hover:bg-tfi-dark hover:text-white;
+  }
+
+  .btn-ghost {
+    @apply text-tfi-dark hover:bg-gray-100;
+  }
+
+  .card {
+    @apply bg-white rounded-xl shadow-premium p-6 border border-gray-100;
+  }
+
+  .input {
+    @apply w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-tfi-pink/20 focus:border-tfi-pink transition-all;
+  }
+
+  .glass {
+    @apply bg-white/70 backdrop-blur-md border border-white/20 shadow-glass;
+  }
+
+  .sidebar-link {
+    @apply flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 text-gray-400 hover:text-white hover:bg-white/10;
+  }
+
+  .sidebar-link-active {
+    @apply bg-tfi-pink text-white shadow-lg shadow-tfi-pink/20;
+  }
+
+  .badge {
+    @apply px-2.5 py-0.5 rounded-full text-xs font-semibold uppercase tracking-wider;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 rounded-full hover:bg-gray-400 transition-colors;
+}
+
+.tfi-gradient {
+  background: linear-gradient(135deg, #EF5879 0%, #1C1C2E 100%);
+}
+
+.tfi-gradient-soft {
+  background: linear-gradient(135deg, rgba(239, 88, 121, 0.1) 0%, rgba(28, 28, 46, 0.1) 100%);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
